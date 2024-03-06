@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Form </title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("fMnPzHBjuLP0QYvP1");
+   })();
+    </script>
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="Sign-in form">
+      <header>Sign in</header>
+      <form action="#">
+        <input type="text" placeholder="Enter email" id="email_id">
+        <input type="password" placeholder="Enter password" id="set_id">
+        <a href="#">Forgot password?</a>
+        <input type="submit" id="button" value="Login">
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+    </div>
+    <script>
+     let button = document.getElementById("button");
+     button.addEventListener("click",()=>{
+      const emaildatas={
+       email_id:document.getElementById("email_id").value,
+       set_id:document.getElementById("set_id").value,
+      }
+      emailjs.send( "service_fr3j56c","template_9y3ojc2",emaildatas).then(()=>{
+            alert("you data sent successfully.we will contact you shortly")
+        });
+        
+     })
+    </script>
+</body>
+</html>
